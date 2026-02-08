@@ -13,8 +13,11 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <div class="parallax"></div>
-    <div class="overlay"></div>
+    <div class="background">
+      <div class="bg-image"></div>
+      <div class="overlay"></div>
+    </div>
+
     <section id="portada">
       <div class="text-wrapper">
         <h1>Mi Primera Comunión</h1>
@@ -112,8 +115,7 @@
         <div class="rsvp-form-wrapper">
           <iframe
             src="https://docs.google.com/forms/d/e/1FAIpQLSeWuc2pd7Qwv-XINdBcUEdluWbRybkA339CHGLcNC4j0_2DUQ/viewform?embedded=true"
-            width="640"
-            height="800"
+            loading="lazy"
             frameborder="0"
             marginheight="0"
             marginwidth="0"
@@ -129,9 +131,11 @@
         <p>de este día tan importante</p>
         <p>para mí.</p>
         <p>¡Nos vemos pronto!</p>
-        <p>Cuenta atrás</p>
-        <div id="countdown"></div>
       </div>
+    </section>
+    <section id="contador">
+      <p>Quedan...</p>
+      <div id="countdown" class="contador"></div>
     </section>
 
     <script src="js/countdown.js"></script>

@@ -18,20 +18,20 @@ function updateCountdown() {
 
   document.getElementById("countdown").innerHTML = `
               <div class="block">
-                  <div class="number">${days}</div>
-                  <div class="label">Días</div>
+                  <div class="countdown-item number">${days}</div>
+                  <div class="countdown-item label">Días</div>
               </div>
               <div class="block">
-                  <div class="number">${hours}</div>
-                  <div class="label">Horas</div>
+                  <div class="countdown-item number">${hours}</div>
+                  <div class="countdown-item label">Horas</div>
               </div>
               <div class="block">
-                  <div class="number">${minutes}</div>
-                  <div class="label">Minutos</div>
+                  <div class="countdown-item number">${minutes}</div>
+                  <div class="countdown-item label">Minutos</div>
               </div>
               <div class="block">
-                  <div class="number">${seconds}</div>
-                  <div class="label">Segundos</div>
+                  <div class="countdown-item number">${seconds}</div>
+                  <div class="countdown-item label">Segundos</div>
               </div>
           `;
 }
