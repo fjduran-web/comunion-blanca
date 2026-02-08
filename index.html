@@ -56,21 +56,23 @@
                 rel="noopener"
                 class="icon-link"
               >
-              <svg
-                class="icon-location"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                <circle cx="12" cy="10" r="3" /></svg><span class="icon-link-text">Ver ubicación</span>
+                <svg
+                  class="icon-location"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <span class="icon-link-text">Ver ubicación</span>
               </a>
             </p>
           </dd>
@@ -97,7 +99,9 @@
               aria-hidden="true"
             >
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-              <circle cx="12" cy="10" r="3" /></svg><span class="icon-link-text">Ver ubicación del convite</span></a
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <span class="icon-link-text">Ver ubicación del convite</span></a
           >
         </p>
       </div>
@@ -106,93 +110,15 @@
       <div class="text-wrapper">
         <p>¿Te apuntas?</p>
         <div class="rsvp-form-wrapper">
-          <!--
-            IMPORTANTE:
-            1) Crea una cuenta en un servicio de formularios tipo Formspree (https://formspree.io)
-            2) Copia aquí la URL de tu endpoint en el atributo action del formulario
-          -->
-            <a
-              href="https://forms.gle/TU_FORMULARIO"
-              target="_blank"
-              class="icon-link"
-            >
-          <form
-            class="rsvp-form"
-            method="POST"
-            action="https://formspree.io/f/TU_CODIGO_AQUI"
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSeWuc2pd7Qwv-XINdBcUEdluWbRybkA339CHGLcNC4j0_2DUQ/viewform?embedded=true"
+            width="640"
+            height="800"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            >Cargando…</iframe
           >
-            <div class="form-field">
-              <label for="asistencia">¿Vas a asistir?</label>
-              <select id="asistencia" name="asistencia" required>
-                <option value="">Selecciona una opción</option>
-                <option value="si">Sí, asistiremos</option>
-                <option value="no">No podremos ir</option>
-              </select>
-            </div>
-
-            <div class="form-row-inline">
-              <div class="form-field">
-                <label for="nombres">Nombre(s) de los asistentes</label>
-                <input
-                  type="text"
-                  id="nombres"
-                  name="nombres"
-                  placeholder="Ej: Blanca, papá, mamá..."
-                  required
-                />
-              </div>
-              <div class="form-field">
-                <label for="personas">Número total de personas</label>
-                <input
-                  type="number"
-                  id="personas"
-                  name="personas"
-                  min="1"
-                  step="1"
-                  required
-                />
-              </div>
-            </div>
-
-            <div class="form-field">
-              <label for="alergias"
-                >Alergias, intolerancias o si alguien es vegano</label
-              >
-              <textarea
-                id="alergias"
-                name="alergias"
-                placeholder="Indícanos si hay alergias, intolerancias o si alguien es vegano"
-              ></textarea>
-              <small
-                >Así podremos avisar al restaurante y adaptar el menú.</small
-              >
-            </div>
-
-            <div class="form-field">
-              <label for="cancion">Propón una canción para la fiesta</label>
-              <input
-                type="text"
-                id="cancion"
-                name="cancion"
-                placeholder="Título y artista, si lo sabes"
-              />
-            </div>
-
-            <div class="form-field">
-              <label for="comentarios">Comentarios adicionales</label>
-              <textarea
-                id="comentarios"
-                name="comentarios"
-                placeholder="Cualquier cosa que nos quieras contar..."
-              ></textarea>
-            </div>
-
-            <button type="submit">Enviar confirmación</button>
-            <p class="privacy-note">
-              Usaremos tus datos solo para organizar la comunión (asistentes,
-              menús y música).
-            </p>
-          </form>
         </div>
       </div>
     </section>
