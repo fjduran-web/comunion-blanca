@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Primera Comunión</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Lato", sans-serif;
+      }
+      .parallax {
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        background-image: url(assets/img/girasoles.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: -2;
+        filter: blur(0.2rem);
+      }
+
+      /* Overlay: capa clara semitransparente encima de la imagen */
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(255, 245, 230, 0.5);
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      h1 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 42px;
+        text-align: center;
+        color: #6d5d4a;
+      }
+
+      section {
+        position: relative;
+        z-index: 0;
+        display: block;
+        height: 100vh;
+      }
+
+      .text-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+
+      /* Marco ovalado: recorta la imagen para ver solo de cintura/lazo hacia arriba */
+      .photo-frame {
+        width: 280px;
+        height: 340px;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.1);
+        flex-shrink: 0;
+      }
+      .photo-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center -10%;
+        transform: scale(1.35);
+      }
+
+      p,
+      dt,
+      dd {
+        font-size: 26px;
+        font-weight: 900;
+        color: #a07d57;
+        font-family: "Lato", sans-serif;
+      }
+
+      #datos-evento dt {
+        margin-top: 0;
+        margin-bottom: 0.15em;
+      }
+      #datos-evento dd {
+        margin-bottom: 1.4rem;
+      }
+      #datos-evento dd:last-of-type {
+        margin-bottom: 0;
+      }
+      #datos-evento dd p {
+        margin-top: 0;
+        margin-bottom: 0.35em;
+      }
+      #datos-evento dd p:last-child {
+        margin-bottom: 0;
+        text-align: center;
+      }
+      .icon-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: inherit;
+        text-decoration: none;
+      }
+      .icon-link:hover {
+        opacity: 0.85;
+      }
+      .icon-link .icon-location {
+        flex-shrink: 0;
+      }
+      .icon-link-text {
+        font-size: 0.85em;
+      }
+
+      /* Formulario RSVP */
+      .rsvp-form-wrapper {
+        width: 100%;
+        max-width: 520px;
+        margin-top: 1.5rem;
+      }
+
+      .rsvp-form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+        padding: 1.4rem 1.6rem;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      }
+
+      .rsvp-form .form-field {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.25rem;
+        text-align: left;
+      }
+
+      .rsvp-form label {
+        font-size: 18px;
+        color: #5d5348;
+      }
+
+      .rsvp-form small {
+        font-size: 13px;
+        color: #7a7064;
+      }
+
+      .rsvp-form input,
+      .rsvp-form select,
+      .rsvp-form textarea {
+        font-family: "Lato", sans-serif;
+        font-size: 16px;
+        padding: 0.5rem 0.65rem;
+        border-radius: 8px;
+        border: 1px solid rgba(93, 83, 72, 0.45);
+        background-color: rgba(255, 255, 255, 0.95);
+        color: #5d5348;
+        box-sizing: border-box;
+        width: 100%;
+      }
+
+      .rsvp-form input:focus,
+      .rsvp-form select:focus,
+      .rsvp-form textarea:focus {
+        outline: none;
+        border-color: #6d5d4a;
+        box-shadow: 0 0 0 2px rgba(109, 93, 74, 0.18);
+      }
+
+      .rsvp-form textarea {
+        min-height: 70px;
+        resize: vertical;
+      }
+
+      .rsvp-form .form-row-inline {
+        display: flex;
+        flex-direction: row;
+        gap: 0.8rem;
+      }
+
+      .rsvp-form .form-row-inline .form-field {
+        flex: 1;
+      }
+
+      .rsvp-form button[type="submit"] {
+        margin-top: 0.5rem;
+        padding: 0.6rem 1rem;
+        border-radius: 999px;
+        border: none;
+        background-color: #6d5d4a;
+        color: #fff;
+        font-size: 18px;
+        font-family: "Montserrat", sans-serif;
+        cursor: pointer;
+        align-self: center;
+        min-width: 180px;
+      }
+
+      .rsvp-form button[type="submit"]:hover {
+        background-color: #5d4f3f;
+      }
+
+      .rsvp-form .privacy-note {
+        font-size: 12px;
+        color: #7a7064;
+        text-align: center;
+        margin-top: 0.4rem;
+      }
+
+      @media (max-width: 600px) {
+        section {
+          height: auto;
+          min-height: 100vh;
+        }
+
+        .rsvp-form {
+          padding: 1.1rem 1.2rem;
+        }
+
+        .rsvp-form .form-row-inline {
+          flex-direction: column;
+        }
+      }
+
+      #countdown {
+        display: flex;
+        gap: 15px;
+        font-family: Arial, sans-serif;
+      }
+
+      .block {
+        background: #ffeebf;
+        padding: 15px 20px;
+        border-radius: 10px;
+        text-align: center;
+        min-width: 80px;
+      }
+
+      .number {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #a07d57;
+      }
+
+      .label {
+        font-size: 0.9rem;
+        color: #666;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parallax"></div>
+    <div class="overlay"></div>
+    <section id="portada">
+      <div class="text-wrapper">
+        <h1>Mi Primera Comunión</h1>
+      </div>
+    </section>
+    <section id="presentacion">
+      <div class="text-wrapper">
+        <p>Hola, soy Blanca</p>
+        <div class="photo-frame">
+          <img src="assets/img/espalda_t2.png" alt="Blanca" />
+        </div>
+      </div>
+    </section>
+    <section id="fecha-comunion">
+      <div class="text-wrapper">
+        <p>El 9 de Mayo hago mi Primera Comunión.</p>
+      </div>
+    </section>
+    <section id="invitacion">
+      <div class="text-wrapper">
+        <p>Me haría mucha ilusión que vineras</p>
+        <p>a acompañarme en un día tan especial para mi.</p>
+      </div>
+    </section>
+    <section id="datos-evento">
+      <div class="text-wrapper">
+        <dl>
+          <dt>📅 Cuándo:</dt>
+          <dd>9 de Mayo de 2026</dd>
+          <dt>⏰ Hora:</dt>
+          <dd>12:00h</dd>
+          <dt>🗺️ Dónde:</dt>
+          <dd>
+            <p>Parroquia de Nuestra Señora de los Dolores</p>
+            <p>
+              <a
+                href="https://www.google.com/maps?q=Parroquia+de+Nuestra+Señora+de+los+Dolores"
+                target="_blank"
+                rel="noopener"
+                class="icon-link"
+              >
+              <svg
+                class="icon-location"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" /></svg><span class="icon-link-text">Ver ubicación</span>
+              </a>
+            </p>
+          </dd>
+        </dl>
+      </div>
+    </section>
+    <section id="convite">
+      <div class="text-wrapper">
+        <p>Después de la ceremonia lo celebraremos juntos.</p>
+        <p>¡Os espero!</p>
+        <p>
+          <a href="" class="icon-link"
+            ><svg
+              class="icon-location"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" /></svg><span class="icon-link-text">Ver ubicación del convite</span></a
+          >
+        </p>
+      </div>
+    </section>
+    <section id="rsvp">
+      <div class="text-wrapper">
+        <p>¿Te apuntas?</p>
+        <div class="rsvp-form-wrapper">
+          <!--
+            IMPORTANTE:
+            1) Crea una cuenta en un servicio de formularios tipo Formspree (https://formspree.io)
+            2) Copia aquí la URL de tu endpoint en el atributo action del formulario
+          -->
+            <a
+              href="https://forms.gle/TU_FORMULARIO"
+              target="_blank"
+              class="icon-link"
+            >
+          <form
+            class="rsvp-form"
+            method="POST"
+            action="https://formspree.io/f/TU_CODIGO_AQUI"
+          >
+            <div class="form-field">
+              <label for="asistencia">¿Vas a asistir?</label>
+              <select id="asistencia" name="asistencia" required>
+                <option value="">Selecciona una opción</option>
+                <option value="si">Sí, asistiremos</option>
+                <option value="no">No podremos ir</option>
+              </select>
+            </div>
+
+            <div class="form-row-inline">
+              <div class="form-field">
+                <label for="nombres">Nombre(s) de los asistentes</label>
+                <input
+                  type="text"
+                  id="nombres"
+                  name="nombres"
+                  placeholder="Ej: Blanca, papá, mamá..."
+                  required
+                />
+              </div>
+              <div class="form-field">
+                <label for="personas">Número total de personas</label>
+                <input
+                  type="number"
+                  id="personas"
+                  name="personas"
+                  min="1"
+                  step="1"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="alergias"
+                >Alergias, intolerancias o si alguien es vegano</label
+              >
+              <textarea
+                id="alergias"
+                name="alergias"
+                placeholder="Indícanos si hay alergias, intolerancias o si alguien es vegano"
+              ></textarea>
+              <small
+                >Así podremos avisar al restaurante y adaptar el menú.</small
+              >
+            </div>
+
+            <div class="form-field">
+              <label for="cancion">Propón una canción para la fiesta</label>
+              <input
+                type="text"
+                id="cancion"
+                name="cancion"
+                placeholder="Título y artista, si lo sabes"
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="comentarios">Comentarios adicionales</label>
+              <textarea
+                id="comentarios"
+                name="comentarios"
+                placeholder="Cualquier cosa que nos quieras contar..."
+              ></textarea>
+            </div>
+
+            <button type="submit">Enviar confirmación</button>
+            <p class="privacy-note">
+              Usaremos tus datos solo para organizar la comunión (asistentes,
+              menús y música).
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section id="cierre">
+      <div class="text-wrapper">
+        <p>Gracias</p>
+        <p>por formar parte</p>
+        <p>de este día tan importante</p>
+        <p>para mí.</p>
+        <p>¡Nos vemos pronto!</p>
+        <p>Cuenta atrás</p>
+        <div id="countdown"></div>
+      </div>
+    </section>
+
+    <script>
+      // === CONFIGURA AQUÍ LA FECHA OBJETIVO ===
+      const targetDate = new Date("2026-05-09T12:00:00");
+
+      function updateCountdown() {
+        const now = new Date();
+        const diff = targetDate - now;
+
+        if (diff <= 0) {
+          document.getElementById("countdown").innerHTML =
+            "<div>¡Llegó el momento!</div>";
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        document.getElementById("countdown").innerHTML = `
+              <div class="block">
+                  <div class="number">${days}</div>
+                  <div class="label">Días</div>
+              </div>
+              <div class="block">
+                  <div class="number">${hours}</div>
+                  <div class="label">Horas</div>
+              </div>
+              <div class="block">
+                  <div class="number">${minutes}</div>
+                  <div class="label">Minutos</div>
+              </div>
+              <div class="block">
+                  <div class="number">${seconds}</div>
+                  <div class="label">Segundos</div>
+              </div>
+          `;
+      }
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+    </script>
+  </body>
+</html>
