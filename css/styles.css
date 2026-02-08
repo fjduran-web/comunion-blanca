@@ -51,9 +51,10 @@ h1 {
 }
 
 section {
+  display: block;
   position: relative;
   z-index: 1;
-  min-height: 100vh;
+  height: calc(100vh - 4rem);
   padding: 2rem 1.25rem;
 }
 
@@ -80,6 +81,7 @@ section {
   box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
 }
+
 .photo-frame img {
   width: 100%;
   height: 100%;
@@ -101,20 +103,25 @@ dd {
   margin-top: 0;
   margin-bottom: 0.15em;
 }
+
 #datos-evento dd {
   margin-bottom: 1.4rem;
 }
+
 #datos-evento dd:last-of-type {
   margin-bottom: 0;
 }
+
 #datos-evento dd p {
   margin-top: 0;
   margin-bottom: 0.35em;
 }
+
 #datos-evento dd p:last-child {
   margin-bottom: 0;
   text-align: center;
 }
+
 .icon-link {
   display: inline-flex;
   align-items: center;
@@ -122,12 +129,15 @@ dd {
   color: inherit;
   text-decoration: none;
 }
+
 .icon-link:hover {
   opacity: 0.85;
 }
+
 .icon-link .icon-location {
   flex-shrink: 0;
 }
+
 .icon-link-text {
   font-size: 0.85em;
 }
