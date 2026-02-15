@@ -218,3 +218,10 @@ dd {
     display: block;
   }
 }
+
+/* ajuste de línea forzado */
+@media (max-width: 519px) {
+  #fecha-comunion span {
+    display: block;
+  }
+}
