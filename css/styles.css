@@ -74,7 +74,8 @@ section {
 }
 
 #portada {
-  margin-top: 50%;
+  display: grid;
+  place-items: center;
 }
 
 /* Marco ovalado: recorta la imagen para ver solo de cintura/lazo hacia arriba */
