@@ -73,6 +73,10 @@ section {
   height: 100%;
 }
 
+#portada {
+  margin-top: 50%;
+}
+
 /* Marco ovalado: recorta la imagen para ver solo de cintura/lazo hacia arriba */
 .photo-frame {
   width: 280px;
