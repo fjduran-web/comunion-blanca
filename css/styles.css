@@ -173,7 +173,8 @@ dd {
 }
 
 .number {
-  font-size: 2rem;
+  font-size: 2.2rem;
+  line-height: 1.1;
   font-weight: bold;
   color: #a07d57;
 }
@@ -199,10 +200,12 @@ dd {
 
 .contador .block {
   display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
   background: #ffeebf;
   padding: 15px 20px;
   border-radius: 10px;
-  text-align: center;
   min-width: 70px;
 }
 
@@ -210,13 +213,17 @@ dd {
   flex-basis: 100%;
 }
 
-@media (min-width: 520px) {
+@media (min-width: 535px) {
   .contador {
     flex-direction: row;
   }
 
   .contador .block {
     display: block;
+  }
+
+  .contador .label {
+    align-items: center;
   }
 }
 
