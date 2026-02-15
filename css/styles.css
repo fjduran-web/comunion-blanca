@@ -90,6 +90,10 @@ section {
   transform: scale(1.35);
 }
 
+p {
+  text-align: center;
+}
+
 p,
 dt,
 dd {
@@ -97,7 +101,6 @@ dd {
   font-weight: 900;
   color: #a07d57;
   font-family: "Lato", sans-serif;
-  text-align: center;
 }
 
 #datos-evento dt {
@@ -143,108 +146,25 @@ dd {
   font-size: 0.85em;
 }
 
-/* Formulario RSVP */
-.rsvp-form-wrapper {
-  width: 100%;
-  max-width: 640px;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.rsvp-form-wrapper iframe {
-  width: 100%;
-  min-height: 700px;
-  border: none;
-}
-
-.rsvp-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
-  padding: 1.4rem 1.6rem;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-.rsvp-form .form-field {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 0.25rem;
-  text-align: left;
-}
-
-.rsvp-form label {
-  font-size: 18px;
-  color: #5d5348;
-}
-
-.rsvp-form small {
-  font-size: 13px;
-  color: #7a7064;
-}
-
-.rsvp-form input,
-.rsvp-form select,
-.rsvp-form textarea {
-  font-family: "Lato", sans-serif;
-  font-size: 16px;
-  padding: 0.5rem 0.65rem;
-  border-radius: 8px;
-  border: 1px solid rgba(93, 83, 72, 0.45);
-  background-color: rgba(255, 255, 255, 0.95);
-  color: #5d5348;
-  box-sizing: border-box;
-  width: 100%;
-}
-
-.rsvp-form input:focus,
-.rsvp-form select:focus,
-.rsvp-form textarea:focus {
-  outline: none;
-  border-color: #6d5d4a;
-  box-shadow: 0 0 0 2px rgba(109, 93, 74, 0.18);
-}
-
-.rsvp-form textarea {
-  min-height: 70px;
-  resize: vertical;
-}
-
-.rsvp-form .form-row-inline {
-  display: flex;
-  flex-direction: row;
-  gap: 0.8rem;
-}
-
-.rsvp-form .form-row-inline .form-field {
-  flex: 1;
-}
-
-.rsvp-form button[type="submit"] {
-  margin-top: 0.5rem;
-  padding: 0.6rem 1rem;
-  border-radius: 999px;
-  border: none;
-  background-color: #6d5d4a;
-  color: #fff;
-  font-size: 18px;
-  font-family: "Montserrat", sans-serif;
-  cursor: pointer;
-  align-self: center;
-  min-width: 180px;
-}
-
-.rsvp-form button[type="submit"]:hover {
-  background-color: #5d4f3f;
-}
-
-.rsvp-form .privacy-note {
-  font-size: 12px;
-  color: #7a7064;
+.cta-wrapper {
   text-align: center;
-  margin-top: 0.4rem;
+  margin-top: 2rem;
+}
+
+.btn-confirmar {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  background-color: #e8c07d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.btn-confirmar:hover {
+  background-color: #d4a95f;
+  transform: translateY(-2px);
 }
 
 #countdown {
